@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
 public class ProjectOne {
-		private static final String URL= "jdbc:mysql://localhost:3306/your_database";
+		   private static final String URL= "jdbc:mysql://localhost:3306/project_one";
 	       private static final String USER = "root";
 	       private static final String PASSWORD = "Bienvenu6676@";
 
@@ -34,7 +34,7 @@ public class ProjectOne {
             int count = 0;
             try (
                     // Establish a connection to the database
-                    Connection connection = DriverManager.getConnectionalhost(URL,USER,PASSWORD);
+                    Connection connection = DriverManager.getConnection(URL,USER,PASSWORD);
                     // Create a prepared statement
                     PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO ProjectTable (Name, Email, Age, Location, Designation) VALUES (?, ?, ?, ?, ?)");
                     // Create a Scanner for user input
