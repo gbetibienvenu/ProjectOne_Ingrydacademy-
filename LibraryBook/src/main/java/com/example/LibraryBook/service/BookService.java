@@ -31,7 +31,7 @@ public class BookService {
         return bookRepository.findById(bookId).orElse(null);
     }
     public BookModel findBookByIsbn(String isbn){
-        return bookRepository.findUserByIsbn(isbn);
+        return bookRepository.findBookByIsbn(isbn);
     }
     public BookModel findByTitle(String title){
         return bookRepository.findByTitle(title);

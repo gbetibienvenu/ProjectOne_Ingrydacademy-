@@ -17,7 +17,7 @@ import java.util.Map;
 public class UserService {
     @Autowired
     private UserRepository userRepository;
-
+//
 //    @Cacheable("getAllUsers")
 //    public List<UserModel> getAllUsers(){
 //        return userRepository.findAll();
@@ -31,15 +31,26 @@ public class UserService {
          userRepository.save(usermodel);
     }
     public UserModel findUserById(Long userId){
+
         return userRepository.findById(userId).orElse(null);
     }
-    public UserModel findByEmail(String email){
+    public UserModel findByEmail(String email)
+    {
         return userRepository.findUserByEmailIgnoreCase(email);
+
     }
-//    public UserModel findUserByFullname(String fullname){
-//        return userRepository.findByFullName(fullname);
-//
+    public UserModel findByFullName(String fullname){
+        return userRepository.findByFullName(fullName);
+
+    }
+//    public  String updateUser(Long id ,UserModel userModel){
+//        UserModel topdate = userRepository.findById(id).orElseThrow(() ->
+//                new UserNotFoundException("User not found"));
+//        topdate.set
 //    }
+
+
+
 
 }
 
