@@ -23,7 +23,7 @@ public class BorrowedBookController {
         return  new ResponseEntity<>(borrowedBookService.saveUsers(borrowedBookModel), HttpStatus.CREATED);
     }
     @PostMapping("/Allusers")
-    public Map<String,Boolean> saveAllUsers(@Valid @RequestBody list<BorrowedBookModel> borrowedBookModel){
+    public Map<String,Boolean> saveAllUsers(@Valid @RequestBody List<BorrowedBookModel> borrowedBookModel){
         return  borrowedBookModel.saveAllUsers(borrowedBookModel);
     }
     @GetMapping("/users")

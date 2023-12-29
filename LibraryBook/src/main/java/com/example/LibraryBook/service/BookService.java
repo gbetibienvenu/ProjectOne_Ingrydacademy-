@@ -9,19 +9,27 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 
 import java.awt.print.Book;
+import java.util.HashMap;
 import java.util.List;
 
 public class BookService {
     @Autowired
     private BookRepository bookRepository;
+    public Map<String,Boolean> SaveAllUser(List<BookModel> books){
+        Map<String,Boolean> response = new HashMap<>();
+        for(BookModel book: books){
+            response.put(book.getBook() + "book added succeeefully"), true);
+        }
+        return  response;
+    }
+    @Cacheable("AllBooks")
+    public List<BookModel> finAllBooks(){
 
-    @Cacheable("getAllBooks")
-    public List<BookModel> getAllBooks(){
         return bookRepository.findAll();
     }
     @CacheEvict(value = {"getAllBook", "getBookById"}, allEntries = true)
     public void addBook(Book book){
-       bookRepository.save(book);
+       bookRepository.Save(book);
     }
     @CacheEvict (value = {"getAllBook", "getBookById"}, allEntries = true)
     public void deleteBook(Long  bookId){

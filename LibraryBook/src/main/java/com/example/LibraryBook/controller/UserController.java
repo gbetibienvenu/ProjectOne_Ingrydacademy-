@@ -23,7 +23,7 @@ public class UserController {
         return  new ResponseEntity<>(userService.saveUsers(userModel), HttpStatus.CREATED);
     }
     @PostMapping("/Allusers")
-    public Map<String,Boolean> saveAllUsers(@Valid @RequestBody list<UserModel> userModel){
+    public Map<String,Boolean> saveAllUsers(@Valid @RequestBody List<UserModel> userModel){
         return  userService.saveAllUsers(userModel);
     }
      @GetMapping("/users")
@@ -33,12 +33,14 @@ public class UserController {
     @GetMapping("/users/{id}")
     public ResponseEntity<UserModel> getUserById(@PathVariable long id){
         return new ResponseEntity<>(userService.findUserById(id), HttpStatus.OK);
+    }
+
     @PutMapping("users/{id}")
     public ResponseEntity<String> updateUser(@Valid @PathVariable long id, @RequestBody UserModel userModel){
         return ResponseEntity.ok(userService.updateUser(id, userModel));
         }
     @DeleteMapping("users/{id}")
-    public  ResponseEntity<userModel> deleteuser (@PathVariable long id){
+    public  ResponseEntity<UserModel> deleteuser (@PathVariable long id){
         return ResponseEntity.ok(userService.deleteById(id));
         }
 

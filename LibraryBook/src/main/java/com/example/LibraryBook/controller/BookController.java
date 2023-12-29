@@ -22,7 +22,7 @@ public class BookController {
         return  new ResponseEntity<>(bookService.saveUsers(bookModel),HttpStatus.CREATED);
     }
     @PostMapping("/Allbooks")
-    public Map<String,Boolean> saveAllBooks(@Valid @RequestBody list<BookModel> bookModel){
+    public Map<String,Boolean> saveAllBooks(@Valid @RequestBody List<BookModel> bookModel){
         return  bookModel.saveAllUsers(bookModel);
     }
     @GetMapping("/users")
